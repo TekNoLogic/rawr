@@ -4,7 +4,7 @@
 ----------------------------
 
 local L = {
-	emote = "You roar with bestial vigor.  So fierce!",
+	emote = "You roar with bestial vigor",
 	["Illusion: Black Dragonkin"] = "Illusion: Black Dragonkin",
 	["Furbolg Form"] = "Furbolg Form",
 	["Bear Form"] = "Bear Form",
@@ -51,7 +51,7 @@ end
 
 
 function Rawr:CHAT_MSG_TEXT_EMOTE(event, emote, name)
-	if name ~= playername or emote ~= L.emote then return end
+	if name ~= playername or not string.find(emote, L.emote) then return end
 
 	for buff,sound in pairs(buffs) do
 		if GetPlayerBuffName(buff) then return PlaySoundFile(sound) end
