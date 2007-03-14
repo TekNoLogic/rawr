@@ -41,7 +41,7 @@ local buffs = {
 --      The meaty insides      --
 ---------------------------------
 
-Rawr = DongleStub("Dongle-Beta0"):New("Rawr")
+Rawr = DongleStub("Dongle-Beta1"):New("Rawr")
 
 
 function Rawr:Enable()
