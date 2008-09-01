@@ -1,4 +1,5 @@
-﻿
+﻿if IS_WRATH_BUILD == nil then IS_WRATH_BUILD = (select(4, GetBuildInfo()) >= 30000) end
+
 ----------------------------
 --      Localization      --
 ----------------------------
@@ -53,7 +54,7 @@ function Rawr:CHAT_MSG_TEXT_EMOTE(event, emote, name)
 	if name ~= playername or not string.find(emote, L.emote) then return end
 
 	for buff,sound in pairs(buffs) do
-		if GetPlayerBuffName(buff) then return PlaySoundFile(sound) end
+		if (IS_WRATH_BUILD and UnitAura("player", buff)) or (not IS_WRATH_BUILD and GetPlayerBuffName(buff)) then return PlaySoundFile(sound) end
 	end
 
 	PlaySoundFile(rawrpath)
