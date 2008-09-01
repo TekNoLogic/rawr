@@ -48,15 +48,8 @@ local buffs = {
 --      The meaty insides      --
 ---------------------------------
 
-Rawr = DongleStub("Dongle-1.0"):New("Rawr")
-
-
-function Rawr:Enable()
-	self:RegisterEvent("CHAT_MSG_TEXT_EMOTE")
-end
-
-
-function Rawr:CHAT_MSG_TEXT_EMOTE(event, emote, name)
+local f = CreateFrame("Frame")
+f:SetScript("OnEvent", function(self, event, emote, name)
 	if name ~= playername or not string.find(emote, L.emote) then return end
 
 	for buff,sound in pairs(buffs) do
@@ -64,4 +57,5 @@ function Rawr:CHAT_MSG_TEXT_EMOTE(event, emote, name)
 	end
 
 	PlaySoundFile(rawrpath)
-end
+end)
+f:RegisterEvent("CHAT_MSG_TEXT_EMOTE")
