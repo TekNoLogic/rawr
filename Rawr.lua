@@ -22,10 +22,16 @@ local L = {
 ------------------------------
 
 local playername = UnitName("player")
+local ismale = UnitSex("player") == 2
 local _, race = UnitRace("player")
-if race == "Scourge" then race = "Undead" end
-local rawrpath = "Sound\\Character\\PlayerRoars\\CharacterRoars"..race..
-	((UnitSex("player") == 2) and "Male.wav" or "Female.wav")
+if race == "Scourge" then race = "Undead"
+elseif race == "Blood Elf" then race = "BloodElf" end
+local rawrpath = "Sound\\Character\\PlayerRoars\\CharacterRoars"..race..(ismale and "Male.wav" or "Female.wav")
+
+if race == "Draenei" or race == "Blood Elf" then
+	rawrpath = "Sound\\Character\\"..race.."\\"..race..(ismale and "Male" or "Female").."Roar01.wav"
+end
+
 
 local buffs = {
 	[L["Bear Form"]]      = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav",
