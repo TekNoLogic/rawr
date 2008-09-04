@@ -61,14 +61,12 @@ local buffs = {
 --      The meaty insides      --
 ---------------------------------
 
-local f = CreateFrame("Frame")
-f:SetScript("OnEvent", function(self, event, emote, name)
-	if name ~= playername or not string.find(emote, L.emote) then return end
 
+hooksecurefunc("DoEmote", function(emote, msg)
+	if emote ~= "ROAR" then return end
 	for buff,sound in pairs(buffs) do
 		if (IS_WRATH_BUILD and UnitAura("player", buff)) or (not IS_WRATH_BUILD and GetPlayerBuffName(buff)) then return PlaySoundFile(sound) end
 	end
 
 	PlaySoundFile(rawrpath)
 end)
-f:RegisterEvent("CHAT_MSG_TEXT_EMOTE")
