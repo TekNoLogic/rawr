@@ -4,7 +4,18 @@
 --      Localization      --
 ----------------------------
 
-local L = {
+local locale = GetLocale()
+local L = locale == "deDE" and {
+	["Illusion: Black Dragonkin"] = "Illusion: Schwarzer Drachkin",
+	["Furbolg Form"] = "Furbolggestalt",
+	["Bear Form"] = "B\195\164rengestalt",
+	["Dire Bear Form"] = "Terrorb\195\164rengestalt",
+	["Cat Form"] = "Katzengestalt",
+	["Travel Form"] = "Reisegestalt",
+	["Moonkin Form"] = "Mondkingestalt",
+	["Ghost Wolf"] = "Geisterwolf",
+	["Baum des Lebens"] = "Baum des Lebens",
+} or {
 	emote = "You roar with bestial vigor",
 	["Illusion: Black Dragonkin"] = "Illusion: Black Dragonkin",
 	["Furbolg Form"] = "Furbolg Form",
@@ -14,6 +25,7 @@ local L = {
 	["Travel Form"] = "Travel Form",
 	["Moonkin Form"] = "Moonkin Form",
 	["Ghost Wolf"] = "Ghost Wolf",
+	["Tree of Life"] = "Tree of Life",
 }
 
 
@@ -42,6 +54,7 @@ local buffs = {
 	[L["Ghost Wolf"]]     = "Sound\\Creature\\Worgen\\A_FenrusAggro.wav",
 	[L["Furbolg Form"]]    = "Sound\\Creature\\Furbolg\\mFurbolgWoundCritical1.wav",
 	[L["Illusion: Black Dragonkin"]] = "Sound\\Creature\\DragonSpawn\\mDragonSpawnAttackCritical1.wav",
+	[L["Tree of Life"]] = "Sound\\Creature\\AncientTreeOfWar\\AncientTreeofWarAttackA.wav",
 }
 
 ---------------------------------
