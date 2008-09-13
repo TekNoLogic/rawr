@@ -1,3 +1,6 @@
+3.0.1.2-Beta
+    Belfs suck
+
 3.0.1.1-Beta
     Change to use a hook... can't say I like it, but it avoids the need to localize the detection string
     Add deDE locale from EnSabahNur @ WoWI
