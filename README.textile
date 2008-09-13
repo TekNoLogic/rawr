@@ -1,9 +1,0 @@
-Rawr is a simple mod, it unearths the racial /roar sounds which are in the client, yet unused. Oh, and there's a few other roars, see if you can find em.
-
-Based off RoarSounds by Feador/Barilla.
-
-h2. Links
-
-<b>Visit "my site":http://www.tekkub.net/addons/Rawr for more info.<br>
-Please report all bugs and feature requests to my "Google Code":http://code.google.com/p/tekkub-wow/issues/list?can=1&q=addon:Rawr&sort=status+milestone&colspec=ID%20Type%20Status%20Addon%20Milestone%20Summary tracker<br>
-Please direct all feedback and questions to my "Google Groups":http://groups-beta.google.com/group/tekkub-wow mailinglist.</b>
