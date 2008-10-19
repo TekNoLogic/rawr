@@ -1,5 +1,4 @@
-﻿if IS_WRATH_BUILD == nil then IS_WRATH_BUILD = (select(4, GetBuildInfo()) >= 30000) end
-
+﻿
 ----------------------------
 --      Localization      --
 ----------------------------
@@ -64,7 +63,7 @@ local buffs = {
 hooksecurefunc("DoEmote", function(emote, msg)
 	if emote ~= "ROAR" then return end
 	for buff,sound in pairs(buffs) do
-		if (IS_WRATH_BUILD and UnitAura("player", buff)) or (not IS_WRATH_BUILD and GetPlayerBuffName(buff)) then return PlaySoundFile(sound) end
+		if UnitAura("player", buff) then return PlaySoundFile(sound) end
 	end
 
 	PlaySoundFile(rawrpath)
