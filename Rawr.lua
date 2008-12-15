@@ -1,33 +1,4 @@
 ﻿
-----------------------------
---      Localization      --
-----------------------------
-
-local locale = GetLocale()
-local L = locale == "deDE" and {
-	["Illusion: Black Dragonkin"] = "Illusion: Schwarzer Drachkin",
-	["Furbolg Form"] = "Furbolggestalt",
-	["Bear Form"] = "B\195\164rengestalt",
-	["Dire Bear Form"] = "Terrorb\195\164rengestalt",
-	["Cat Form"] = "Katzengestalt",
-	["Travel Form"] = "Reisegestalt",
-	["Moonkin Form"] = "Mondkingestalt",
-	["Ghost Wolf"] = "Geisterwolf",
-	["Baum des Lebens"] = "Baum des Lebens",
-} or {
-	emote = "You roar with bestial vigor",
-	["Illusion: Black Dragonkin"] = "Illusion: Black Dragonkin",
-	["Furbolg Form"] = "Furbolg Form",
-	["Bear Form"] = "Bear Form",
-	["Dire Bear Form"] = "Dire Bear Form",
-	["Cat Form"] = "Cat Form",
-	["Travel Form"] = "Travel Form",
-	["Moonkin Form"] = "Moonkin Form",
-	["Ghost Wolf"] = "Ghost Wolf",
-	["Tree of Life"] = "Tree of Life",
-}
-
-
 ------------------------------
 --      Are you local?      --
 ------------------------------
@@ -44,15 +15,15 @@ end
 
 
 local buffs = {
-	[L["Bear Form"]]      = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav",
-	[L["Dire Bear Form"]] = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav",
-	[L["Cat Form"]]       = "Sound\\Creature\\Tiger\\mTigerAttackA.wav",
-	[L["Travel Form"]]    = "Sound\\Creature\\Tiger\\mTigerAttackA.wav",
-	[L["Moonkin Form"]]   = "Sound\\Creature\\ForceofNature\\ForceOfNatureWoundCrit.wav",
-	[L["Ghost Wolf"]]     = "Sound\\Creature\\Worgen\\A_FenrusAggro.wav",
-	[L["Furbolg Form"]]    = "Sound\\Creature\\Furbolg\\mFurbolgWoundCritical1.wav",
-	[L["Illusion: Black Dragonkin"]] = "Sound\\Creature\\DragonSpawn\\mDragonSpawnAttackCritical1.wav",
-	[L["Tree of Life"]] = "Sound\\Creature\\AncientTreeOfWar\\AncientTreeofWarAttackA.wav",
+	[768] = "Sound\\Creature\\Tiger\\mTigerAttackA.wav", -- Cat Form
+	[783] = "Sound\\Creature\\Tiger\\mTigerAttackA.wav", -- Travel Form
+	[2645] = "Sound\\Creature\\Worgen\\A_FenrusAggro.wav", -- Ghost Wolf
+	[5487] = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav", -- Bear Form
+	[6405]  = "Sound\\Creature\\Furbolg\\mFurbolgWoundCritical1.wav", -- Furbolg Form
+	[9634] = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav", -- Dire Bear Form
+	[19937] = "Sound\\Creature\\DragonSpawn\\mDragonSpawnAttackCritical1.wav", -- Illusion: Black Dragonkin
+	[24858] = "Sound\\Creature\\ForceofNature\\ForceOfNatureWoundCrit.wav", -- Moonkin Form
+	[33891] = "Sound\\Creature\\AncientTreeOfWar\\AncientTreeofWarAttackA.wav", -- Tree of Life
 }
 
 ---------------------------------
@@ -62,8 +33,10 @@ local buffs = {
 
 hooksecurefunc("DoEmote", function(emote, msg)
 	if emote ~= "ROAR" then return end
-	for buff,sound in pairs(buffs) do
-		if UnitAura("player", buff) then return PlaySoundFile(sound) end
+	for id,sound in pairs(buffs) do
+		local name, _, icon = GetSpellInfo(id)
+		local auraname, _, auraicon = UnitAura("player", name)
+		if auraname and auraicon == icon then return PlaySoundFile(sound) end
 	end
 
 	PlaySoundFile(rawrpath)
