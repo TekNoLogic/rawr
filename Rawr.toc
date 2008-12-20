@@ -3,7 +3,7 @@
 ## Title: Rawr!
 ## Notes: Enable /roar sounds for every race
 ## Author: Tekkub Stoutwrithe
-## Version: Alpha
+## Version: 3.0.3.3
 ## X-Credits: Based off RoarSounds by Feador/Barilla
 ## X-Website: http://code.google.com/p/tekkub-wow/
 ## X-Email: tekkub-wow@googlegroups.com
