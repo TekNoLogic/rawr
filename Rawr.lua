@@ -20,7 +20,6 @@ local buffs = {
 	[2645] = "Sound\\Creature\\Worgen\\A_FenrusAggro.wav", -- Ghost Wolf
 	[5487] = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav", -- Bear Form
 	[6405]  = "Sound\\Creature\\Furbolg\\mFurbolgWoundCritical1.wav", -- Furbolg Form
-	[9634] = "Sound\\Creature\\Bear\\mBearAttackCriticalA.wav", -- Dire Bear Form
 	[19937] = "Sound\\Creature\\DragonSpawn\\mDragonSpawnAttackCritical1.wav", -- Illusion: Black Dragonkin
 	[24858] = "Sound\\Creature\\ForceofNature\\ForceOfNatureWoundCrit.wav", -- Moonkin Form
 	[33891] = "Sound\\Creature\\AncientTreeOfWar\\AncientTreeofWarAttackA.wav", -- Tree of Life
