@@ -1,3 +1,6 @@
+4.0.0.4-Release
+    Dat spell be gone
+
 3.0.3.3-Release
     Add tuskarr grrrrRAWR!
     Remove localization, run off GetSpellInfo values
